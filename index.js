@@ -1,7 +1,10 @@
-const http = require('http');
-const port = process.env.PORT || 9000;
+var express = require('express');
+var app = express();
 
-http.createServer(function(req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('{"success":true, "data":"index", "message":"hello world", "code":200}');
-}).listen(port, '127.0.0.1');
+app.get('/', function(req, res) {
+    res.send('Hello World');
+})
+
+app.listen(process.env.PORT || 4000, function() {
+    console.log('Your node js server is running');
+});
